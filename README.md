@@ -11,8 +11,7 @@
 7) Recovery outcome classification (recoverable / infeasible / unsafe)  
 8) Reporting: JSON + CSV + MCM Graphviz DOT
 
-> Important: this is a research-oriented, transparent reference build.  
-> For deployment-quality fidelity, replace the toy ST parser, mock executor, and simple classifier with your production components.
+
 
 ## Build
 ```bash
