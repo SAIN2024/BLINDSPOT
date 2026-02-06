@@ -1,33 +1,31 @@
-# BLINDSPOT — End-to-End C#/.NET 8 Reference Implementation
+# BLINDSPOT 
 
+artifact implementing:
 
-
-1) Constraint extraction (PLC ST/SCL + operator rules JSON + ESD ST)  
-2) Multi-layer constraint model (MCM) graph construction  
-3) Trace analysis 
-4) Template generation using a strict JSON schema 
-5) Template validation / instantiation  
-6) vPLC execution adapter 
-7) Recovery outcome classification 
-8) Reporting
-
+1. Static analysis + constraint extraction 
+2. Trace analysis 
+3. Incident template generation 
+4. vPLC-style deterministic execution
+5. Recovery classification 
 
 ## Build
 ```bash
-dotnet build BLINDSPOT.sln
+dotnet restore BLINDSPOT.sln
+dotnet build BLINDSPOT.sln -c Release
+dotnet test BLINDSPOT.sln -c Release
 ```
 
-## Run pipeline
+## Run
 ```bash
-dotnet run --project src/Blindspot.Cli -- --sampleRoot samples/water --useMockLlm true --outDir out --log info
+dotnet run --project src/BLINDSPOT.Cli -- --out artifacts/run1
 ```
 
-Outputs:
-- `out/blindspot_report.json`
-- `out/blindspot_report.csv`
-- `out/mcm.dot` (render with Graphviz: `dot -Tpng mcm.dot -o mcm.png`)
 
-## Run self-tests
+## .NET Dependencies
+
+### Required SDK
+- **.NET SDK 8.0** (or newer 8.x)
+
+Check installed version:
 ```bash
-dotnet run --project src/Blindspot.SelfTest
-```
+dotnet --version
